@@ -2,31 +2,301 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Audio Demo</title>
+  <title>DRASDIC Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: Arial, sans-serif;
+      margin-top: 20px;
+    }
+    .card {
+      margin-bottom: 30px;
+    }
+    .waveform, .spectrogram {
+      width: 100%;
+      border: 1px solid #ddd;
+      margin-bottom: 10px;
+    }
+    .waveform {
+      height: 128px;
+    }
+    .spectrogram {
+      height: 256px;
+    }
+    .play-btn {
+      margin-bottom: 10px;
+    }
+  </style>
 </head>
 <body>
-  <h2>Anonymous Audio Samples for Paper Review</h2>
+  <div class="container my-5">
 
-  <p><strong>Sample 1:</strong></p>
-  <audio controls>
-    <source src="audio/synthetic_01.wav" type="audio/mpeg">
-    Your browser does not support audio playback.
-  </audio>
+    <!-- Paper Card -->
+    <div class="card shadow-sm mb-4">
+      <div class="card-body">
+        <h3 class="card-title">Synthetic data enables context‐aware bioacoustic sound event detection.</h3>
+        <p class="card-text">
+          We propose a methodology for training foundation models that enhances their in-context learning capabilities within the domain of bioacoustic signal processing.
+          We use synthetically generated training data, introducing a domain-randomization-based pipeline that constructs diverse acoustic scenes with temporally strong labels.
+          We generate over 8.8 thousand hours of strongly-labeled audio and train a query-by-example, transformer-based model to perform few-shot bioacoustic sound event detection. Our second contribution is a public benchmark of 13 diverse few-shot bioacoustics tasks.
+          to evaluate the in-context learning capabilities of foundation models.
+          Our model outperforms previously published methods by 49%, and we demonstrate that this is due to both model design and data scale. We make our trained model available via an API, to provide ecologists and ethologists with a training-free tool for bioacoustic sound event detection.
+        </p>
+      </div>
+    </div>
 
-  <p><strong>Sample 2:</strong></p>
-  <audio controls>
-    <source src="audio/synthetic_02.wav" type="audio/mpeg">
-    Your browser does not support audio playback.
-  </audio>
+    <!-- Synthetic Training Audio Card -->
+    <div class="card shadow-sm mb-4">
+      <div class="card-header bg-primary text-white">
+        <h4 class="mb-0">Examples: Synthetic Training Audio</h4>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <!-- Synthetic Audio 1 -->
+          <div class="col-12">
+            <div class="card mb-3">
+              <div class="card-header">Synthetic Audio 1</div>
+              <div class="card-body">
+                <button id="synth-play-1" class="btn btn-primary btn-sm play-btn">Play</button>
+                <div id="synth-waveform-1" class="waveform"></div>
+                <div id="synth-spectrogram-1" class="spectrogram"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Synthetic Audio 2 -->
+          <div class="col-12">
+            <div class="card mb-3">
+              <div class="card-header">Synthetic Audio 2</div>
+              <div class="card-body">
+                <button id="synth-play-2" class="btn btn-primary btn-sm play-btn">Play</button>
+                <div id="synth-waveform-2" class="waveform"></div>
+                <div id="synth-spectrogram-2" class="spectrogram"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Synthetic Audio 3 -->
+          <div class="col-12">
+            <div class="card mb-3">
+              <div class="card-header">Synthetic Audio 3</div>
+              <div class="card-body">
+                <button id="synth-play-3" class="btn btn-primary btn-sm play-btn">Play</button>
+                <div id="synth-waveform-3" class="waveform"></div>
+                <div id="synth-spectrogram-3" class="spectrogram"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <p><strong>Sample 3:</strong></p>
-  <audio controls>
-    <source src="audio/synthetic_03.wav" type="audio/mpeg">
-    Your browser does not support audio playback.
-  </audio>
+    <!-- FASD13 Benchmark Card -->
+    <div class="card shadow-sm mb-4">
+      <div class="card-header bg-primary text-white">
+        <h4 class="mb-0">Examples: FASD13 Benchmark</h4>
+        <small class="text-light"></small>
+      </div>
+      <div class="card-body">
+        <!-- Carrion Crows Subsection -->
+        <h5 class="mb-3">Newly Released: Carrion Crows</h5>
+        <div class="row">
+          <!-- Carrion Crows Example 1 -->
+          <div class="col-12">
+            <div class="card mb-3">
+              <div class="card-header">Carrion Crows Example 1</div>
+              <div class="card-body">
+                <button id="carrion-play-1" class="btn btn-primary btn-sm play-btn">Play</button>
+                <div id="carrion-waveform-1" class="waveform"></div>
+                <div id="carrion-spectrogram-1" class="spectrogram"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Carrion Crows Example 2 -->
+          <div class="col-12">
+            <div class="card mb-3">
+              <div class="card-header">Carrion Crows Example 2</div>
+              <div class="card-body">
+                <button id="carrion-play-2" class="btn btn-primary btn-sm play-btn">Play</button>
+                <div id="carrion-waveform-2" class="waveform"></div>
+                <div id="carrion-spectrogram-2" class="spectrogram"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Jumping Spiders Subsection -->
+        <h5 class="mb-3 mt-4">Newly Released: Jumping Spiders</h5>
+        <div class="row">
+          <!-- Jumping Spiders Example 1 -->
+          <div class="col-12">
+            <div class="card mb-3">
+              <div class="card-header">Jumping Spiders Example 1</div>
+              <div class="card-body">
+                <button id="spiders-play-1" class="btn btn-primary btn-sm play-btn">Play</button>
+                <div id="spiders-waveform-1" class="waveform"></div>
+                <div id="spiders-spectrogram-1" class="spectrogram"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Jumping Spiders Example 2 -->
+          <div class="col-12">
+            <div class="card mb-3">
+              <div class="card-header">Jumping Spiders Example 2</div>
+              <div class="card-body">
+                <button id="spiders-play-2" class="btn btn-primary btn-sm play-btn">Play</button>
+                <div id="spiders-waveform-2" class="waveform"></div>
+                <div id="spiders-spectrogram-2" class="spectrogram"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <!-- Add more samples as needed -->
-
+  </div>
+  
+  <!-- WaveSurfer v6.6.2 UMD and Plugins -->
+  <script src="https://unpkg.com/wavesurfer.js@6.6.2"></script>
+  <script src="https://unpkg.com/wavesurfer.js@6.6.2/dist/plugin/wavesurfer.regions.min.js"></script>
+  <script src="https://unpkg.com/wavesurfer.js@6.6.2/dist/plugin/wavesurfer.spectrogram.min.js"></script>
+  <!-- Create Audio Demo Instances -->
+  <script>
+    /**
+     * Helper function to create a WaveSurfer demo instance.
+     * options: {
+     *   playButtonId: string,
+     *   waveformId: string,
+     *   spectrogramId: string,
+     *   audioPath: string,
+     *   selectionTablePath: string
+     * }
+     */
+    function createAudioDemo(options) {
+      const { playButtonId, waveformId, spectrogramId, audioPath, selectionTablePath } = options;
+      
+      const ws = WaveSurfer.create({
+        container: '#' + waveformId,
+        waveColor: '#cccccc',
+        progressColor: '#555555',
+        backend: 'MediaElement',
+        height: 128,
+        plugins: [
+          WaveSurfer.regions.create({}),
+          WaveSurfer.spectrogram.create({
+            container: '#' + spectrogramId,
+            labels: true,
+            height: 256
+          })
+        ]
+      });
+      
+      ws.load(audioPath);
+      
+      ws.on('ready', () => {
+        fetch(selectionTablePath)
+          .then(resp => resp.text())
+          .then(text => {
+            const lines = text.split('\n').map(l => l.trim()).filter(Boolean);
+            if (lines[0] && lines[0].toLowerCase().includes('begin')) {
+              lines.shift();
+            }
+            lines.forEach(line => {
+              const parts = line.split(/\s+/);
+              if (parts.length >= 2) {
+                const start = parseFloat(parts[0]);
+                const end = parseFloat(parts[1]);
+                const label = parts[2] || 'Unknown';
+                ws.addRegion({
+                  start: start,
+                  end: end,
+                  color: 'rgba(255, 0, 0, 0.3)',
+                  data: { annotation: label }
+                });
+              }
+            });
+          })
+          .catch(err => console.error('Error loading selection table:', err));
+      });
+      
+      const playBtn = document.getElementById(playButtonId);
+      playBtn.addEventListener('click', () => {
+        ws.playPause();
+        playBtn.textContent = ws.isPlaying() ? 'Pause' : 'Play';
+      });
+      
+      ws.on('audioprocess', currentTime => {
+        Object.values(ws.regions.list).forEach(region => {
+          if (currentTime >= region.start && currentTime <= region.end) {
+            region.update({ color: 'rgba(0, 255, 0, 0.4)' });
+          } else {
+            region.update({ color: 'rgba(255, 0, 0, 0.3)' });
+          }
+        });
+      });
+      
+      ws.on('finish', () => {
+        playBtn.textContent = 'Play';
+      });
+    }
+    
+    // ----- Synthetic Audios -----
+    createAudioDemo({
+      playButtonId: 'synth-play-1',
+      waveformId: 'synth-waveform-1',
+      spectrogramId: 'synth-spectrogram-1',
+      audioPath: 'audio/synthetic_02.wav',
+      selectionTablePath: 'audio/selection_table_synthetic_02.txt'
+    });
+    createAudioDemo({
+      playButtonId: 'synth-play-2',
+      waveformId: 'synth-waveform-2',
+      spectrogramId: 'synth-spectrogram-2',
+      audioPath: 'audio/audio_27.wav',
+      selectionTablePath: 'audio/selection_table_27.txt'
+    });
+    createAudioDemo({
+      playButtonId: 'synth-play-3',
+      waveformId: 'synth-waveform-3',
+      spectrogramId: 'synth-spectrogram-3',
+      audioPath: 'audio/audio_27.wav',
+      selectionTablePath: 'audio/selection_table_27.txt'
+    });
+    
+    // ----- Test Audios: Carrion Crows -----
+    createAudioDemo({
+      playButtonId: 'carrion-play-1',
+      waveformId: 'carrion-waveform-1',
+      spectrogramId: 'carrion-spectrogram-1',
+      audioPath: 'audio/carrion_crow_19_AL_Azul_1015truncated_clip_30s.wav',
+      selectionTablePath: 'audio/cc_19_azul_parsed.txt'
+    });
+    createAudioDemo({
+      playButtonId: 'carrion-play-2',
+      waveformId: 'carrion-waveform-2',
+      spectrogramId: 'carrion-spectrogram-2',
+      audioPath: 'audio/carrion_crow_19_AL_Naranja_30s.wav',
+      selectionTablePath: 'audio/cc_19_naranja_parsed.txt'
+    });
+    
+    // ----- Test Audios: Jumping Spiders -----
+    // createAudioDemo({
+    //   playButtonId: 'spiders-play-1',
+    //   waveformId: 'spiders-waveform-1',
+    //   spectrogramId: 'spiders-spectrogram-1',
+    //   audioPath: 'audio/test/jumping_spiders_01.wav',
+    //   selectionTablePath: 'audio/test/selection_table_jumping_spiders_01.txt'
+    // });
+    // createAudioDemo({
+    //   playButtonId: 'spiders-play-2',
+    //   waveformId: 'spiders-waveform-2',
+    //   spectrogramId: 'spiders-spectrogram-2',
+    //   audioPath: 'audio/test/jumping_spiders_02.wav',
+    //   selectionTablePath: 'audio/test/selection_table_jumping_spiders_02.txt'
+    // });
+  </script>
+  
+  <!-- Bootstrap Bundle JS (Optional for interactive components) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
