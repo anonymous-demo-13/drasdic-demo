@@ -1,0 +1,2 @@
+Selection	View	Channel	Begin Time (s)	End Time (s)	Low Freq (Hz)	High Freq (Hz)	Species	Annotation	Original Filename
+2	Spectrogram 1	1	1.0	7.416665997999985	0.0	139.288	Rugr	Rugr	20200501_114000_0s-300s.wav

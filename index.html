@@ -4,8 +4,15 @@
   <meta charset="UTF-8">
   <title>DRASDIC Demo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous"
+  >
+
   <style>
     body {
       background-color: #f8f9fa;
@@ -31,9 +38,12 @@
     }
   </style>
 </head>
+
 <body>
   <div class="container my-5">
-    <!-- Paper Card -->
+    <!-- ======================
+         1) Paper Card
+         ====================== -->
     <div class="card shadow-sm mb-4">
       <div class="card-body">
         <h3 class="card-title">Synthetic data enables context‐aware bioacoustic sound event detection.</h3>
@@ -45,136 +55,62 @@
       </div>
     </div>
 
-    <!-- Synthetic Training Audio Card -->
+    <!-- ======================
+         2) Synthetic Training Audio (Dynamic)
+         ====================== -->
     <div class="card shadow-sm mb-4">
       <div class="card-header bg-primary text-white">
         <h4 class="mb-0">Examples: Synthetic Training Audio</h4>
-        <small class="text-light">The first thirty seconds is the support audio, and the remaining ten seconds is the query.</small>
+        <small class="text-light">
+          The first thirty seconds is the support audio, and the remaining ten seconds is the query.
+        </small>
       </div>
       <div class="card-body">
-        <div class="row">
-          <!-- Synthetic Audio 1 -->
-          <div class="col-12">
-            <div class="card mb-3">
-              <div class="card-header">Synthetic Audio 1</div>
-              <div class="card-body">
-                <button id="synth-play-1" class="btn btn-primary btn-sm play-btn">Play</button>
-                <div id="synth-waveform-1" class="waveform"></div>
-                <div id="synth-spectrogram-1" class="spectrogram"></div>
-              </div>
-            </div>
-          </div>
-          <!-- Synthetic Audio 2 -->
-          <div class="col-12">
-            <div class="card mb-3">
-              <div class="card-header">Synthetic Audio 2</div>
-              <div class="card-body">
-                <button id="synth-play-2" class="btn btn-primary btn-sm play-btn">Play</button>
-                <div id="synth-waveform-2" class="waveform"></div>
-                <div id="synth-spectrogram-2" class="spectrogram"></div>
-              </div>
-            </div>
-          </div>
-          <!-- Synthetic Audio 3 -->
-          <div class="col-12">
-            <div class="card mb-3">
-              <div class="card-header">Synthetic Audio 3</div>
-              <div class="card-body">
-                <button id="synth-play-3" class="btn btn-primary btn-sm play-btn">Play</button>
-                <div id="synth-waveform-3" class="waveform"></div>
-                <div id="synth-spectrogram-3" class="spectrogram"></div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div id="synthetic-audio-container" class="row"></div>
       </div>
     </div>
 
-    <!-- FASD13 Benchmark Card -->
+    <!-- ======================
+         3) FASD13 Benchmark
+         ====================== -->
     <div class="card shadow-sm mb-4">
       <div class="card-header bg-primary text-white">
         <h4 class="mb-0">Examples: FASD13 Benchmark</h4>
         <small class="text-light">Newly released bioacoustic datasets</small>
       </div>
-      <div class="card-body">
-        <!-- Carrion Crows Subsection -->
-        <h5 class="mb-3">Newly Released: Carrion Crows</h5>
-        <div class="row">
-          <!-- Carrion Crows Example 1 -->
-          <div class="col-12">
-            <div class="card mb-3">
-              <div class="card-header">Carrion Crows Example 1</div>
-              <div class="card-body">
-                <button id="carrion-play-1" class="btn btn-primary btn-sm play-btn">Play</button>
-                <div id="carrion-waveform-1" class="waveform"></div>
-                <div id="carrion-spectrogram-1" class="spectrogram"></div>
-              </div>
-            </div>
-          </div>
-          <!-- Carrion Crows Example 2 -->
-          <div class="col-12">
-            <div class="card mb-3">
-              <div class="card-header">Carrion Crows Example 2</div>
-              <div class="card-body">
-                <button id="carrion-play-2" class="btn btn-primary btn-sm play-btn">Play</button>
-                <div id="carrion-waveform-2" class="waveform"></div>
-                <div id="carrion-spectrogram-2" class="spectrogram"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Jumping Spiders Subsection -->
-        <h5 class="mb-3 mt-4">Newly Released: Jumping Spiders</h5>
-        <div class="row">
-          <!-- Jumping Spiders Example 1 -->
-          <div class="col-12">
-            <div class="card mb-3">
-              <div class="card-header">Jumping Spiders Example 1</div>
-              <div class="card-body">
-                <button id="spiders-play-1" class="btn btn-primary btn-sm play-btn">Play</button>
-                <div id="spiders-waveform-1" class="waveform"></div>
-                <div id="spiders-spectrogram-1" class="spectrogram"></div>
-              </div>
-            </div>
-          </div>
-          <!-- Jumping Spiders Example 2 -->
-          <div class="col-12">
-            <div class="card mb-3">
-              <div class="card-header">Jumping Spiders Example 2</div>
-              <div class="card-body">
-                <button id="spiders-play-2" class="btn btn-primary btn-sm play-btn">Play</button>
-                <div id="spiders-waveform-2" class="waveform"></div>
-                <div id="spiders-spectrogram-2" class="spectrogram"></div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="card-body" id="fasd13-examples-container">
+        <!-- The dynamic code below will insert subfolders here -->
       </div>
     </div>
 
-    <!-- Cluster Examples Section -->
+    <!-- ======================
+         4) Cluster Examples
+         ====================== -->
     <div class="card shadow-sm mb-4">
       <div class="card-header bg-primary text-white">
         <h4 class="mb-0">Cluster Examples</h4>
-        <small class="text-light">Sound event clusters
-          used in synthetic audio generation </small>
+        <small class="text-light">Sound event clusters used in synthetic audio generation</small>
       </div>
       <div class="card-body" id="cluster-examples">
         <!-- Cluster cards will be added here dynamically -->
       </div>
     </div>
-
   </div>
-  
-  <!-- WaveSurfer v6.6.2 UMD and Plugins -->
-  <script src="https://unpkg.com/wavesurfer.js@6.6.2"></script>
-  <script src="https://unpkg.com/wavesurfer.js@6.6.2/dist/plugin/wavesurfer.regions.min.js"></script>
-  <script src="https://unpkg.com/wavesurfer.js@6.6.2/dist/plugin/wavesurfer.spectrogram.min.js"></script>
-  
-  <!-- Existing Audio Demo Instances -->
+
+  <!-- ======================
+       WaveSurfer + Plugins
+       ====================== -->
+  <script src="https://cdn.jsdelivr.net/npm/wavesurfer.js@6.6.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/wavesurfer.js@6.6.2/dist/plugin/wavesurfer.regions.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/wavesurfer.js@6.6.2/dist/plugin/wavesurfer.spectrogram.min.js"></script>
+
+  <!-- ======================
+       1) createAudioDemo() Function
+       ====================== -->
   <script>
     /**
      * Helper function to create a WaveSurfer demo instance with selection tables.
+     * “Regions” get added from a separate .txt file (start end label).
      */
     function createAudioDemo(options) {
       const { playButtonId, waveformId, spectrogramId, audioPath, selectionTablePath } = options;
@@ -197,37 +133,39 @@
       
       ws.load(audioPath);
       
+      // Once audio is ready
       ws.on('ready', () => {
-
+        // If the file name indicates synthetic or a known pattern, highlight "support" vs "query"
         if (audioPath.includes('synthetic') || audioPath.includes('audio_2')) {
-          // Add the "support" region for the first 30 seconds
+          // First 30s is "support"
           ws.addRegion({
             start: 0,
             end: 30,
-            color: 'rgba(0, 123, 255, 0.3)', // Blueish for support
+            color: 'rgba(0, 123, 255, 0.3)',
             data: { label: 'Support' }
           });
-          
-          // Add the "query" region for the final 10 seconds (30s to 40s)
+          // Next 10s is "query"
           ws.addRegion({
             start: 30,
             end: 40,
-            color: 'rgba(220, 53, 69, 0.3)', // Reddish for query
+            color: 'rgba(220, 53, 69, 0.3)',
             data: { label: 'Query' }
           });
         }
 
+        // Fetch selection table (start, end, label)
         fetch(selectionTablePath)
           .then(resp => resp.text())
           .then(text => {
             const lines = text.split('\n').map(l => l.trim()).filter(Boolean);
+            // If file has a 'Begin' header line, skip it
             if (lines[0] && lines[0].toLowerCase().includes('begin')) {
               lines.shift();
             }
             lines.forEach(line => {
               const parts = line.split(/\s+/);
               if (parts.length >= 2) {
-                const start = parseFloat(parts[0]);
+                const start = Math.max(0, parseFloat(parts[0]));
                 const end = parseFloat(parts[1]);
                 const label = parts[2] || 'Unknown';
                 ws.addRegion({
@@ -239,91 +177,300 @@
               }
             });
           })
-          .catch(err => console.error('Error loading selection table:', err));
+          .catch(err => {
+            console.error('Error loading selection table:', err);
+          });
       });
       
+      // Play button toggles play/pause
       const playBtn = document.getElementById(playButtonId);
       playBtn.addEventListener('click', () => {
         ws.playPause();
         playBtn.textContent = ws.isPlaying() ? 'Pause' : 'Play';
       });
       
+      // Highlight region in green when current time is within a region
       ws.on('audioprocess', currentTime => {
         Object.values(ws.regions.list).forEach(region => {
           if (currentTime >= region.start && currentTime <= region.end) {
             region.update({ color: 'rgba(0, 255, 0, 0.4)' });
           } else {
+            // revert color
             region.update({ color: 'rgba(255, 0, 0, 0.3)' });
           }
         });
       });
       
+      // When audio finishes, reset button label
       ws.on('finish', () => {
         playBtn.textContent = 'Play';
       });
     }
+  </script>
+
+  <!-- ======================
+       2) Dynamic Synthetic Audio Demos
+       ====================== -->
+  <script>
+    // Define your synthetic audio examples with unique IDs
+    const syntheticAudios = [
+      {
+        id: "synth-1",
+        displayName: "Synthetic Audio 1",
+        audioPath: "audio/synthetic_02.wav",
+        selectionTablePath: "audio/selection_table_synthetic_02.txt"
+      },
+      {
+        id: "synth-3",
+        displayName: "Synthetic Audio 2",
+        audioPath: "audio/audio_27.wav",
+        selectionTablePath: "audio/selection_table_27.txt"
+      },
+
+      {
+        id: "synth-5",
+        displayName: "Synthetic Audio 3",
+        audioPath: "audio/synthetic/audio_51.wav",
+        selectionTablePath: "audio/synthetic/selection_table_51.txt"
+      },
+      {
+        id: "synth-6",
+        displayName: "Synthetic Audio 4",
+        audioPath: "audio/synthetic/audio_52.wav",
+        selectionTablePath: "audio/synthetic/selection_table_52.txt"
+      },
+      {
+        id: "synth-7",
+        displayName: "Synthetic Audio 5",
+        audioPath: "audio/synthetic/audio_53.wav",
+        selectionTablePath: "audio/synthetic/selection_table_53.txt"
+      },
+      {
+        id: "synth-8",
+        displayName: "Synthetic Audio 6",
+        audioPath: "audio/synthetic/audio_54.wav",
+        selectionTablePath: "audio/synthetic/selection_table_54.txt"
+      },
+      {
+        id: "synth-9",
+        displayName: "Synthetic Audio 7",
+        audioPath: "audio/synthetic/audio_55.wav",
+        selectionTablePath: "audio/synthetic/selection_table_55.txt"
+      },
+      {
+        id: "synth-10",
+        displayName: "Synthetic Audio 8",
+        audioPath: "audio/synthetic/audio_56.wav",
+        selectionTablePath: "audio/synthetic/selection_table_56.txt"
+      },
+
+    ];
     
-    // Synthetic Audios
-    createAudioDemo({
-      playButtonId: 'synth-play-1',
-      waveformId: 'synth-waveform-1',
-      spectrogramId: 'synth-spectrogram-1',
-      audioPath: 'audio/synthetic_02.wav',
-      selectionTablePath: 'audio/selection_table_synthetic_02.txt',
-    });
-    createAudioDemo({
-      playButtonId: 'synth-play-2',
-      waveformId: 'synth-waveform-2',
-      spectrogramId: 'synth-spectrogram-2',
-      audioPath: 'audio/audio_25.wav',
-      selectionTablePath: 'audio/selection_table_25.txt'
-    });
-    createAudioDemo({
-      playButtonId: 'synth-play-3',
-      waveformId: 'synth-waveform-3',
-      spectrogramId: 'synth-spectrogram-3',
-      audioPath: 'audio/audio_27.wav',
-      selectionTablePath: 'audio/selection_table_27.txt'
-    });
+    // Get the container for synthetic audios
+    const synthContainer = document.getElementById("synthetic-audio-container");
     
-    // Test Audios: Carrion Crows
-    createAudioDemo({
-      playButtonId: 'carrion-play-1',
-      waveformId: 'carrion-waveform-1',
-      spectrogramId: 'carrion-spectrogram-1',
-      audioPath: 'audio/carrion_crow_19_AL_Azul_1015truncated_clip_30s.wav',
-      selectionTablePath: 'audio/cc_19_azul_parsed.txt'
-    });
-    createAudioDemo({
-      playButtonId: 'carrion-play-2',
-      waveformId: 'carrion-waveform-2',
-      spectrogramId: 'carrion-spectrogram-2',
-      audioPath: 'audio/carrion_crow_19_AL_Naranja_30s.wav',
-      selectionTablePath: 'audio/cc_19_naranja_parsed.txt'
-    });
-    
-    // Test Audios: Jumping Spiders
-    // Uncomment if needed.
-    createAudioDemo({
-      playButtonId: 'spiders-play-1',
-      waveformId: 'spiders-waveform-1',
-      spectrogramId: 'spiders-spectrogram-1',
-      audioPath: 'audio/Spiders_01.wav',
-      selectionTablePath: 'audio/Spiders_007_parsed.txt'
-    });
-    createAudioDemo({
-      playButtonId: 'spiders-play-2',
-      waveformId: 'spiders-waveform-2',
-      spectrogramId: 'spiders-spectrogram-2',
-      audioPath: 'audio/Spiders_02.wav',
-      selectionTablePath: 'audio/Spiders_011_parsed.txt'
+    // Loop through the synthetic audios and create a card for each
+    syntheticAudios.forEach(audio => {
+      const colDiv = document.createElement("div");
+      colDiv.className = "col-12";
+      colDiv.innerHTML = `
+        <div class="card mb-3">
+          <div class="card-header">${audio.displayName}</div>
+          <div class="card-body">
+            <button id="${audio.id}-play" class="btn btn-primary btn-sm play-btn">Play</button>
+            <div id="${audio.id}-waveform" class="waveform"></div>
+            <div id="${audio.id}-spectrogram" class="spectrogram"></div>
+          </div>
+        </div>
+      `;
+      synthContainer.appendChild(colDiv);
+      
+      // Initialize the demo for this synthetic audio
+      setTimeout(() => {
+        createAudioDemo({
+          playButtonId: `${audio.id}-play`,
+          waveformId: `${audio.id}-waveform`,
+          spectrogramId: `${audio.id}-spectrogram`,
+          audioPath: audio.audioPath,
+          selectionTablePath: audio.selectionTablePath
+        });
+      }, 0);
     });
   </script>
-  
-  <!-- Simple Audio Demo for Cluster Examples (no regions) -->
+
+  <!-- ======================
+       3) Dynamic FASD13 Examples
+       ====================== -->
+  <script>
+    const fasd13Data = [
+      {
+        category: "AS",
+        label: "AnuraSet",
+        examples: [
+          { name: "AS_0", displayName: "AS Example 1" },
+          { name: "AS_1", displayName: "AS Example 2" }
+        ]
+      },
+      {
+        category: "CC",
+        label: "Carrion Crows (Newly Released)",
+        examples: [
+          { name: "CC_0", displayName: "CC Example 1" },
+          { name: "CC_1", displayName: "CC Example 2" }
+        ]
+      },
+      {
+        category: "GS",
+        label: "Gibbons",
+        examples: [
+          { name: "GS_0", displayName: "GS Example 1" },
+          { name: "GS_1", displayName: "GS Example 2" }
+        ]
+      },
+      {
+        category: "HA",
+        label: "Hawaiian Birds",
+        examples: [
+          { name: "HA_0", displayName: "HA Example 1" },
+          { name: "HA_1", displayName: "HA Example 2" }
+        ]
+      },
+      {
+        category: "HG",
+        label: "Hainnan Gibbons",
+        examples: [
+          { name: "HG_0", displayName: "HG Example 1" },
+          { name: "HG_1", displayName: "HG Example 2" }
+        ]
+      },
+      {
+        category: "HW",
+        label: "Humpback Whale",
+        examples: [
+          { name: "HW_0", displayName: "HW Example 1" },
+          { name: "HW_1", displayName: "HW Example 2" }
+        ]
+      },
+      {
+        category: "JS",
+        label: "Jumping Spiders (Newly Released)",
+        examples: [
+          { name: "JS_0", displayName: "JS Example 1" },
+          { name: "JS_1", displayName: "JS Example 2" }
+        ]
+      },
+      {
+        category: "KD",
+        label: "Katydid",
+        examples: [
+          { name: "KD_0", displayName: "KD Example 1" },
+          { name: "KD_1", displayName: "KD Example 2" }
+        ]
+      },
+      {
+        category: "MS",
+        label: "Marmoset",
+        examples: [
+          { name: "MS_0", displayName: "MS Example 1" },
+          { name: "MS_1", displayName: "MS Example 2" }
+        ]
+      },
+      {
+        category: "PM",
+        label: "Powdermill",
+        examples: [
+          { name: "PM_0", displayName: "PM Example 1" },
+          { name: "PM_1", displayName: "PM Example 2" }
+        ]
+      },
+      {
+        category: "RG",
+        label: "Ruffed Grouse",
+        examples: [
+          { name: "RG_0", displayName: "RG Example 1" },
+          { name: "RG_1", displayName: "RG Example 2" }
+        ]
+      },
+      {
+        category: "RS",
+        label: "Rana Sierrae",
+        examples: [
+          { name: "RS_0", displayName: "RS Example 1" },
+          { name: "RS_1", displayName: "RS Example 2" }
+        ]
+      },
+      {
+        category: "RW",
+        label: "Right Whale",
+        examples: [
+          { name: "RW_0", displayName: "RW Example 1" },
+          { name: "RW_1", displayName: "RW Example 2" }
+        ]
+      }
+    ];
+
+    function createFASD13Examples(data) {
+      const container = document.getElementById("fasd13-examples-container");
+
+      data.forEach(subfolder => {
+        // Sub-heading for the category
+        const subHeading = document.createElement('h5');
+        subHeading.className = 'mb-3 mt-4';
+        subHeading.textContent = `${subfolder.label}`;
+        container.appendChild(subHeading);
+
+        // A row for this set of examples
+        const rowDiv = document.createElement('div');
+        rowDiv.className = 'row';
+        container.appendChild(rowDiv);
+
+        // For each file in this subfolder
+        subfolder.examples.forEach((ex, index) => {
+          const cardId = `fasd13-${subfolder.category}-example-${index}`;
+          const playButtonId = `${cardId}-play-button`;
+          const waveformId = `${cardId}-waveform`;
+          const spectrogramId = `${cardId}-spectrogram`;
+
+          // Build a Bootstrap card
+          const colDiv = document.createElement('div');
+          colDiv.className = 'col-12';
+          colDiv.innerHTML = `
+            <div class="card mb-3">
+              <div class="card-header">${ex.displayName}</div>
+              <div class="card-body">
+                <button id="${playButtonId}" class="btn btn-primary btn-sm play-btn">Play</button>
+                <div id="${waveformId}" class="waveform"></div>
+                <div id="${spectrogramId}" class="spectrogram"></div>
+              </div>
+            </div>
+          `;
+          rowDiv.appendChild(colDiv);
+
+          // Initialize WaveSurfer for this example
+          setTimeout(() => {
+            createAudioDemo({
+              playButtonId: playButtonId,
+              waveformId: waveformId,
+              spectrogramId: spectrogramId,
+              audioPath: `audio/example_fasd13/${subfolder.category}/${ex.name}.wav`,
+              selectionTablePath: `audio/example_fasd13/${subfolder.category}/${ex.name}_converted.txt`
+            });
+          }, 0);
+        });
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      createFASD13Examples(fasd13Data);
+    });
+  </script>
+
+  <!-- ======================
+       4) Dynamic Cluster Examples
+       ====================== -->
   <script>
     /**
-     * Helper function to create a simplified WaveSurfer instance (without selection table).
+     * Helper function for simpler audio demos (no region/selection table).
      */
     function createSimpleAudioDemo(options) {
       const { playButtonId, waveformId, audioPath } = options;
@@ -332,10 +479,10 @@
         waveColor: '#cccccc',
         progressColor: '#555555',
         backend: 'MediaElement',
-        height: 128,
+        height: 128
       });
       ws.load(audioPath);
-      
+
       const playBtn = document.getElementById(playButtonId);
       playBtn.addEventListener('click', () => {
         ws.playPause();
@@ -345,17 +492,15 @@
         playBtn.textContent = 'Play';
       });
     }
-    
-    // Hard-coded list of clusters and their audio filenames.
-    // Update this array with your actual cluster IDs and file names.
+
+    // Example data for cluster examples
     const clusterData = [
       {
         id: "cluster_21571",
         files: [
           "1_Dactylortyx.thoracicus8902-1b_source0_clip3.wav",
           "2_Dactylortyx.thoracicus8902-1b_source0_clip4.wav",
-          "3_Dactylortyx.thoracicus8902-1b_source0_clip5.wav",
-          // "4_Dactylortyx.thoracicus8902-1b_source0_clip6.wav"
+          "3_Dactylortyx.thoracicus8902-1b_source0_clip5.wav"
         ]
       },
       {
@@ -363,8 +508,7 @@
         files: [
           "1_CARMAG09_source3_clip21.wav",
           "2_Carduelis_carduelis_PF00658_short_source0_clip27.wav",
-          "3_SISKIN_Hooded_02_Reserva_Costanera_Sur_Buenos_Aires_AR_9SEP05_Carlos_Ferrari_source0_clip20.wav",
-          // "4_XC137778-OCHRACEOUS_WREN_Santa_Elena_CF_Costa_Rica_3.59pm_05282013_source1_clip2.wav"
+          "3_SISKIN_Hooded_02_Reserva_Costanera_Sur_Buenos_Aires_AR_9SEP05_Carlos_Ferrari_source0_clip20.wav"
         ]
       },
       {
@@ -372,34 +516,49 @@
         files: [
           "1_906._Bocages_BushShrike_Kakamega_7Apr12_1110_source0_clip0.wav",
           "2_906._Bocages_BushShrike_Kakamega_7Apr12_1110_source0_clip1.wav",
-          "3_906._Bocages_BushShrike_Kakamega_7Apr12_1110_source0_clip2.wav",
-          // "4_906._Bocages_BushShrike_Kakamega_7Apr12_1110_source0_clip3.wav"
+          "3_906._Bocages_BushShrike_Kakamega_7Apr12_1110_source0_clip2.wav"
+        ]
+      },
+      {
+        id: "cluster_9620",
+        files: [
+          "1_XC131989-7_Hunters_Cisticola2_Aberdares_30Mar13_0820_source0_clip0.wav",
+          "2_XC131989-7_Hunters_Cisticola2_Aberdares_30Mar13_0820_source0_clip1.wav",
+          "3_XC131989-7_Hunters_Cisticola2_Aberdares_30Mar13_0820_source0_clip2.wav",
+        ]
+      },
+      {
+        id: "cluster_33578",
+        files: [
+          "2_145197_source0_clip5.wav",
+          "3_15480_source0_clip6.wav",
+          "4_300MOCLC0912261002SAKR2_source1_clip4.wav"
         ]
       }
-];
+    ];
 
-    
-    // Iterate over clusterData to dynamically add cluster example cards.
+    // Dynamically build the cluster example cards
     const clusterContainer = document.getElementById("cluster-examples");
     clusterData.forEach(cluster => {
-      // Create a card for this cluster.
+      // Card wrapper
       const card = document.createElement("div");
       card.className = "card shadow-sm mb-4";
       const cardHeader = document.createElement("div");
       cardHeader.className = "card-header bg-primary text-white";
       cardHeader.innerHTML = `<h4 class="mb-0">${cluster.id}</h4>`;
       card.appendChild(cardHeader);
-      
+
       const cardBody = document.createElement("div");
       cardBody.className = "card-body";
-      
-      // For each audio file in this cluster, create a demo.
+
+      // Each file in the cluster
       cluster.files.forEach((file, index) => {
         const demoDiv = document.createElement("div");
         demoDiv.className = "mb-3";
-        // Unique IDs for the play button and waveform container.
+
         const playButtonId = `cluster-${cluster.id}-play-${index}`;
         const waveformId = `cluster-${cluster.id}-waveform-${index}`;
+
         demoDiv.innerHTML = `
           <div class="card">
             <div class="card-header">Audio ${index + 1}</div>
@@ -409,26 +568,30 @@
             </div>
           </div>
         `;
-        // Inside your clusterData.forEach loop, for each file:
         cardBody.appendChild(demoDiv);
-        // Delay the WaveSurfer instance creation until the container is in the DOM.
+
+        // Initialize the simple demo for each cluster audio
         setTimeout(() => {
-        createSimpleAudioDemo({
-          playButtonId: playButtonId,
-          waveformId: waveformId,
-          audioPath: `audio/clusters/${cluster.id}/${file}`
-        });
-
+          createSimpleAudioDemo({
+            playButtonId: playButtonId,
+            waveformId: waveformId,
+            audioPath: `audio/clusters/${cluster.id}/${file}`
+          });
         }, 0);
-
       });
-      
+
       card.appendChild(cardBody);
       clusterContainer.appendChild(card);
     });
   </script>
-  
-  <!-- Bootstrap Bundle JS (Optional for interactive components) -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+  <!-- ======================
+       Bootstrap Bundle JS
+       ====================== -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLEAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"
+  ></script>
 </body>
 </html>

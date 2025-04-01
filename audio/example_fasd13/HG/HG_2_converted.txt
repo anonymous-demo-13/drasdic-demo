@@ -1,0 +1,3 @@
+Begin Time (s)	End Time (s)	Annotation
+1.0	6.0	POS
+20.0	26.0	POS

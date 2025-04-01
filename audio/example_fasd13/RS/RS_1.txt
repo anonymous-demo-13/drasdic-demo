@@ -1,0 +1,8 @@
+Selection	View	Channel	Begin Time (s)	End Time (s)	Low Freq (Hz)	High Freq (Hz)	Delta Time (s)	Delta Freq (Hz)	Avg Power Density (dB FS/Hz)	Annotation
+45	Spectrogram 1	1	1.0	1.6204375000000368	0.0	16000.0	0.6204	16000.0	-65.52	frequency_modulated_call
+46	Spectrogram 1	1	3.6796875	4.240749999999991	0.0	16000.0	0.5611	16000.0	-66.57	frequency_modulated_call
+47	Spectrogram 1	1	7.222437500000012	7.915500000000009	0.0	16000.0	0.6931	16000.0	-78.02	frequency_modulated_call
+48	Spectrogram 1	1	16.71862500000003	17.29943750000001	0.0	16000.0	0.5808	16000.0	-78.89	frequency_modulated_call
+49	Spectrogram 1	1	18.177312500000028	18.63268750000003	0.0	16000.0	0.4554	16000.0	-76.85	frequency_modulated_call
+50	Spectrogram 1	1	27.805499999999995	28.42587500000002	0.0	16000.0	0.6204	16000.0	-78.85	frequency_modulated_call
+51	Spectrogram 1	1	31.858062500000017	32.53787500000004	0.0	16000.0	0.6798	16000.0	-79.08	frequency_modulated_call

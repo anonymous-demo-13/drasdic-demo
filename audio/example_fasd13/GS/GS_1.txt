@@ -1,0 +1,2 @@
+Selection	View	Channel	Begin Time (s)	End Time (s)	Low Freq (Hz)	High Freq (Hz)	Delta Time (s)	Delta Freq (Hz)	Avg Power Density (dB FS/Hz)	Annotation
+7	Spectrogram 1	1	1.0	1.9260999999996784	0.0	4000.0	0.9261	4000.0	-55.82	Gun

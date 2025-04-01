@@ -1,0 +1,3 @@
+Begin Time (s)	End Time (s)	Annotation
+20.9226875	21.451	POS
+37.4051875	38.7780625	POS
